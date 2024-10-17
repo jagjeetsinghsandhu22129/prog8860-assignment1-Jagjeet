@@ -28,11 +28,11 @@ jobs:
  
       # Build Docker image
       - name: Build Docker image
-        run: docker build -t my-python-app .
+        run: docker build -t Jagjeet-python-app .
  
       # Run Docker container
       - name: Run Docker container
-        run: docker run -d -p 5000:5000 --name my-python-container my-python-app
+        run: docker run -d -p 5000:5000 --name my-python-container Jagjeet-python-app
  
       # Show running container
       - name: Show running container
@@ -40,8 +40,8 @@ jobs:
  
       # Stop Docker container
       - name: Stop Docker container
-        run: docker stop my-python-container
+        run: docker stop Jagjeet-python-container
  
       # Remove Docker container
       - name: Remove Docker container
-        run: docker rm my-python-container
+        run: docker rm Jagjeet-python-container
