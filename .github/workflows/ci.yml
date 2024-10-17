@@ -3,7 +3,9 @@ name: CI for Python Docker App
 on:
   push:
     branches:
-      - Feature-prog8860-assignment1-Jagjeet
+      #- Feature-prog8860-assignment1-Jagjeet
+      - main
+      - master
  
 jobs:
   build:
