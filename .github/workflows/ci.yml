@@ -32,7 +32,7 @@ jobs:
  
       # Run Docker container
       - name: Run Docker container
-        run: docker run -d -p 5000:5000 --name my-python-container jagjeet-python-app
+        run: docker run -d -p 5000:5000 --name jagjeet-python-container jagjeet-python-app
  
       # Show running container
       - name: Show running container
