@@ -1,0 +1,49 @@
+name: CI for Python Docker App
+ 
+on:
+  push:
+    branches:
+      #- Feature-prog8860-assignment1-Jagjeet
+      - main
+      - master
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      # Checkout code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+ 
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+ 
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+ 
+      # Build Docker image
+      - name: Build Docker image
+        run: docker build -t jagjeet-python-app .
+ 
+      # Run Docker container
+      - name: Run Docker container
+        run: docker run -d -p 5000:5000 --name jagjeet-python-container jagjeet-python-app
+ 
+      # Show running container
+      - name: Show running container
+        run: docker ps -a
+ 
+      # Stop Docker container
+      - name: Stop Docker container
+        run: docker stop jagjeet-python-container
+ 
+      # Remove Docker container
+      - name: Remove Docker container
+        run: docker rm jagjeet-python-container
